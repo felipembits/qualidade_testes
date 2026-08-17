@@ -1,0 +1,1 @@
+OBS: A inteligência artificial foi utilizada para geração do run.sh, facilitando para que eu rode os testes no vscode sem necessidade de instalação de extensões.
