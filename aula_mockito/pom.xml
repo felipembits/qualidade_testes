@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aula_mockito</groupId>
+  <artifactId>aula_mockto</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <properties>
+    <!-- Mockito 5 exige Java 11+; o JDK disponivel aqui e' o 21 -->
+    <maven.compiler.release>17</maven.compiler.release>
+    <!-- Jogo.java esta' em ISO-8859-1 (mesmo default do run.sh) -->
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    <junit.version>5.14.4</junit.version>
+    <mockito.version>5.23.0</mockito.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!-- a 3.1 (default do Maven 3.8) ignora <release> e cai no source 1.5 -->
+        <version>3.14.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <!-- a 2.18.1 do pom original nao enxerga testes JUnit 5 -->
+        <version>3.5.6</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- agregador: junit-jupiter-api + params + engine -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- MockitoExtension: inicializa os @Mock no JUnit 5 -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
+      <version>3.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
